@@ -1,0 +1,41 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // Initial map in activity 1
+    map<string, int> ageMap;
+    ageMap["Louie"] = 25;
+    ageMap["Gouer"] = 30;
+    ageMap["Woody"] = 22;
+    ageMap["Mae"] = 28;
+    ageMap["Max"] = 35;
+
+    //update age of louie
+    ageMap["Louie"] = 26;
+
+    //use .find() to check if "Woody" exists
+    auto it = ageMap.find("Woody");
+    if (it != ageMap.end()) {
+        cout << "Woody is " << it->second << " years old." << endl;
+    } else {
+        cout << "Woody not found." << endl;
+    }
+
+    //delete 1 using .erase()
+    ageMap.erase("Gouer");
+
+    //print size & contents of the map
+    cout << "\nMap size: " << ageMap.size() << endl;
+    cout << "People and their ages:" << endl;
+    for (const auto& pair : ageMap) {
+        cout << pair.first << " is " << pair.second << " years old." << endl;
+    }
+
+    return 0;
+    }
+
+
+
