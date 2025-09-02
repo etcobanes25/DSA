@@ -1,0 +1,28 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+// custom display function
+void displayGrades(const map<char, int>& grades) {
+    cout << "Map contents (default sorted by key):\n";
+    for (const auto& pair : grades) {
+        cout << "Grade " << pair.first << ": " << pair.second << endl;
+    }
+}
+
+int main() {
+    //create & insert entries random arrange
+    map<char, int> grades;
+    grades['C'] = 75;
+    grades['A'] = 90;
+    grades['E'] = 60;
+    grades['B'] = 85;
+    grades['D'] = 70;
+
+    // display custom function
+    displayGrades(grades);
+
+    return 0;
+}
+
