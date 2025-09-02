@@ -1,0 +1,42 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    
+    map<string, map<string, int>> studentScores;
+
+    studentScores["Louie"]["Math"] = 85;
+    studentScores["Louie"]["Science"] = 90;
+    studentScores["Louie"]["English"] = 78;
+
+    studentScores["Mae"]["Math"] = 70;
+    studentScores["Mae"]["Science"] = 75;
+    studentScores["Mae"]["English"] = 80;
+
+    cout << fixed << setprecision(2);
+
+    for (const auto& student : studentScores) {
+        const string& name = student.first;
+        const map<string, int>& subjects = student.second;
+
+        cout << "Student: " << name << endl;
+
+        int total = 0;
+        int count = 0;
+
+        for (const auto& subject : subjects) {
+            cout << "  " << subject.first << ": " << subject.second << endl;
+            total += subject.second;
+            count++;
+        }
+
+        double average = (count > 0) ? (double)total / count : 0;
+        cout << "  Average: " << average << "\n" << endl;
+    }
+
+    return 0;
+}
