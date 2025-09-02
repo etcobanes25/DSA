@@ -1,0 +1,33 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+int main() {
+    map<string, int> ageMap;
+
+    ageMap.insert(make_pair("Louie", 25));
+    ageMap.insert(make_pair("Gouer", 30));
+    ageMap.insert(make_pair("Woody", 22));
+
+    ageMap["Mae"] = 28;
+    ageMap["Max"] = 35;
+
+    cout << "All people and their ages:" << endl;
+    for (const auto& pair : ageMap) {
+        cout << pair.first << " is " << pair.second << " years old." << endl;
+    }
+
+    cout << "\nAge of Woody is: " << ageMap["Woody"] << endl;
+
+    //non-existing
+    cout << "\nAccessing non-existing key 'Chase': " << ageMap["Chase"] << endl;
+
+    cout << "\nAfter accessing 'Chase', map contains:" << endl;
+    for (const auto& pair : ageMap) {
+        cout << pair.first << " is " << pair.second << " years old." << endl;
+    }
+
+    return 0;
+}
