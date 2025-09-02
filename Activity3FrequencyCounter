@@ -1,0 +1,29 @@
+#include <iostream>
+#include <map>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    cout << "Enter a sentence:\n";
+    string input;
+    getline(cin, input);  // get full line including spaces
+
+    stringstream ss(input);
+    string word;
+    map<string, int> freqMap;
+
+    // Count frequency of each word
+    while (ss >> word) {
+        freqMap[word]++;
+    }
+
+    // Print words and their frequencies
+    cout << "\nWord frequencies:\n";
+    for (const auto& pair : freqMap) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+
+    return 0;
+}
